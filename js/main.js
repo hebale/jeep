@@ -47,9 +47,11 @@ $(function(){
 
 		$(".modal_photo>div").css("display","none");
 		modalImg.css("display","block");
+		
+		$(".modal_nav>ul>li").removeClass();
 		modalNavImg.addClass("on");
 
-		$(".modal_nav>ul").animate({left: 720+ (imgNum * 240 * -1)})
+		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)})
 	});
 
 	$(".modal_nav>ul>li").click(function(){
@@ -66,7 +68,7 @@ $(function(){
 		$(".modal_nav>ul>li").removeClass();
 		modalNavImg.addClass("on");
 
-		$(".modal_nav>ul").animate({left: 720+ (imgNum * 240 * -1)})
+		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)})
 	})
 
 	// 
@@ -82,5 +84,5 @@ $(function(){
 
 function thumbMove(){
 	var x = count * 1200 * -1;
-	$("#view_point>div").animate({left:x},500);
+	$("#view_point>div").stop().animate({left:x},500);
 };
