@@ -1,14 +1,46 @@
 var count = 0;
+var rollNum = 0;
+var playState = true;
 
 var imgAlt,	// gallery 이미지의 alt 값 반환
 	imgLen,	// gallery 이미지의 alt 값의 length 반환
 	imgNum,	// gallery 이미지의 alt 값의 length의 뒷 번호 num으로 반환
 	modalImg,	// click된 이미지의 modal 이미지의 부모자 선택
-	modalNavImg;	//click된 이미지의 modal nav 이미지의 부모자 선택
+	modalNavImg,	//click된 이미지의 modal nav 이미지의 부모자 선택
+	rollOn;	// main rolling image setInterval 합수 변수
 
 $(function(){
-
-
+	rollingOn();
+	//------------------------------------------------------------------
+	//-------------------- jeep main page jquery -----------------------
+	//------------------------------------------------------------------
+	$(".prev_btn").click(function(e){
+		e.preventDefault();
+		if(rollNum >= 0){
+			rollNum--;
+			if(rollNum == -1) rollNum = 8;
+			 rollingMove();
+		};
+	});
+	$(".next_btn").click(function(e){
+		e.preventDefault();
+		if(rollNum <= 9){
+			rollNum++;
+			if(rollNum == 9) rollNum = 0;
+			 rollingMove();
+		};
+	});
+	$(".stop_play_btn").click(function(e){
+		e.preventDefault();
+		if(playState == true){
+			clearInterval(rollOn);
+			playState = false;
+		}else{
+			rollingOn();
+			playState = true;
+		}
+		
+	});
 
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------
@@ -80,9 +112,25 @@ $(function(){
 			$(".thumb_left_btn").css("display","block");
 			$(".thumb_right_btn").css("display","block");
 	})
-});
 
-function thumbMove(){
-	var x = count * 1200 * -1;
-	$("#view_point>div").stop().animate({left:x},500);
-};
+
+
+	function thumbMove(){
+		var x = count * 1200 * -1;
+		$("#view_point>div").stop().animate({left:x},500);
+	};
+
+	
+	// main functions---------------------
+
+	function rollingMove(){  
+		var x = (rollNum * 100 * -1)+"vw";
+		$(".rolling_bg>ul").animate({left:x},1000);
+	};
+
+	function rollingOn(){
+		rollOn = setInterval(function(){
+			$(".next_btn").trigger("click")
+		},6000);
+	};
+});

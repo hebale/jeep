@@ -1,11 +1,39 @@
 @charset "utf-8";
 img{width:100%;}
+/*------------------------------
+	    jeep main page css
+------------------------------*/
+div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;}
+	.logo{position:fixed; width:70px; top:30px; left:50px; z-index:100;}
+	
+	.rolling_bg{_overflow:hidden; position:relative;}
+	.rolling_bg>ul{width:900vw; position:absolute;}
+	.rolling_bg>ul:after{content:""; display:block; clear:both;}
+	.rolling_bg>ul>li{float:left; width:100vw; height:100vh; background-position:center; background-attachment:fixed; background-repeat:no-repeat; background-size:cover; text-indent:-9999px; overflow:hidden;}
+	.rolling_bg>ul>li:nth-child(1){background-image:url(../images/main/rolling01.jpg);}
+	.rolling_bg>ul>li:nth-child(2){background-image:url(../images/main/rolling02.jpg);}
+	.rolling_bg>ul>li:nth-child(3){background-image:url(../images/main/rolling03.jpg);}
+	.rolling_bg>ul>li:nth-child(4){background-image:url(../images/main/rolling04.jpg);}
+	.rolling_bg>ul>li:nth-child(5){background-image:url(../images/main/rolling05.jpg);}
+	.rolling_bg>ul>li:nth-child(6){background-image:url(../images/main/rolling06.jpg);}
+	.rolling_bg>ul>li:nth-child(7){background-image:url(../images/main/rolling07.jpg);}
+	.rolling_bg>ul>li:nth-child(8){background-image:url(../images/main/rolling08.png);}
+	.rolling_bg>ul>li:nth-child(9){background-image:url(../images/main/rolling09.jpg);}
 
+	#gnb{display:none; position:fixed; width:500px; height:100vh; top:0; right:-400px; background:#000; transform:skew(-12deg);}
+	#gnb>ul{width:90px; margin:60vh 0 0 40px; _transform:skew(12deg);}
+	#gnb>ul>li{}
+	#gnb>ul>li+li{margin-top:25px;}
+	#gnb>ul>li>a{display:block; color:#fff; text-transform:uppercase;}
 
-
+	#controls{position:absolute; width:300px; bottom:20px; left:50%; z-index:100;}
+	#controls:after{content:""; display:block; clear:both;}
+	#controls>div{float:left;}
+	#controls>div+div{margin-left:10px;}
+	#controls>div>a{display:block; height:30px; width:80px; background:green; color:red; text-align:center;}
 
 /*------------------------------
-	jeep gallery page css
+	  jeep gallery page css
 ------------------------------*/
 button{position:absolute; top:50px; left:50px; width:100px; height:70px; z-index:1000;}
 
@@ -14,8 +42,8 @@ section#gallery_wrap:after{content:""; display:block; clear:both;}
 	#modal{display:none; position:absolute; width:100%; height:100%; top:0; left:0; background:rgba(30,30,30,0.7); z-index:100}
 		.modal_photo{width:1200px; height:583px; margin:150px auto 0 auto;}
 		.modal_photo>div{display:none; width:1200px; height:583px;}
-		.modal_nav{width:1200px; position:relative; height:117px; margin:0 auto; overflow:hidden; margin-top:5px; border:10px solid #000; border-width:8px 0 0 0;}
-		.modal_nav>ul{width:5280px; position:absolute; left:480px;}
+		.modal_nav{width:1200px; position:relative; height:132px; margin:0 auto; overflow:hidden; _margin-top:5px; border:6px solid #000; border-width:6px 0 0 0;}
+		.modal_nav>ul{width:5280px; position:absolute; left:480px; padding-top:12px;}
 		.modal_nav>ul:after{content:""; display:block; clear:both;}
 		.modal_nav>ul>li{float:Left;}
 		.modal_nav>ul>li.on>a:before{display:none;}
