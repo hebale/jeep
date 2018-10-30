@@ -3,13 +3,13 @@ img{width:100%;}
 /*------------------------------
 	    jeep main page css
 ------------------------------*/
-div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;}
+div#main_container{position:relative; width:100%; height:100vh; _overflow:hidden;}
 	.logo{position:fixed; width:70px; top:30px; left:50px; z-index:100;}
 	
 	.rolling_bg{_overflow:hidden; position:relative;}
-	.rolling_bg>ul{width:900vw; position:absolute;}
+	.rolling_bg>ul{width:100vw; position:absolute;}
 	.rolling_bg>ul:after{content:""; display:block; clear:both;}
-	.rolling_bg>ul>li{float:left; width:100vw; height:100vh; background-position:center; background-attachment:fixed; background-repeat:no-repeat; background-size:cover; text-indent:-9999px; overflow:hidden;}
+	.rolling_bg>ul>li{position:absolute; float:left; width:100vw; height:100vh; background-position:center; background-attachment:fixed; background-repeat:no-repeat; background-size:cover; text-indent:-9999px; overflow:hidden;}
 	.rolling_bg>ul>li:nth-child(1){background-image:url(../images/main/rolling01.jpg);}
 	.rolling_bg>ul>li:nth-child(2){background-image:url(../images/main/rolling02.jpg);}
 	.rolling_bg>ul>li:nth-child(3){background-image:url(../images/main/rolling03.jpg);}
