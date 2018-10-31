@@ -1,46 +1,79 @@
 var count = 0;
-var rollNum = 0;
-var playState = true;
-
 var imgAlt,	// gallery 이미지의 alt 값 반환
 	imgLen,	// gallery 이미지의 alt 값의 length 반환
 	imgNum,	// gallery 이미지의 alt 값의 length의 뒷 번호 num으로 반환
 	modalImg,	// click된 이미지의 modal 이미지의 부모자 선택
 	modalNavImg,	//click된 이미지의 modal nav 이미지의 부모자 선택
-	rollOn;	// main rolling image setInterval 합수 변수
+	// mainpage 변수
+	rollOn,	// main rolling image setInterval 합수 변수
+	rollNext, //main rolling next 인덱스 값
+	rollPrev, //main rolling prev 인덱스 값
+	rollCurInd; //main rolling 현제 인덱스 값
+var toggleState = true; //mainpage toggle state 값
+var rollNum = 0; //main rolling 현재 인덱스 초기값
+var playState = true; //main rolling stop버튼 상태값
+var rollInd = 1; //main rolling z-인덱스 초기값
 
 $(function(){
-	// rollingOn();
 	//------------------------------------------------------------------
 	//-------------------- jeep main page jquery -----------------------
 	//------------------------------------------------------------------
+	var liSel = $(".rolling_bg>ul>li");
+	var liLen = liSel.length;
+	
+	rollingOn();  //page 로드시 이미지 롤링 스타트
+
+	liSel.eq(0).css("display","block");
+
 	$(".prev_btn").click(function(e){
 		e.preventDefault();
 		if(rollNum >= 0){
-			rollNum--;
-			if(rollNum == -1) rollNum = 8;
-			 rollingMove();
+			rollPrev = rollNum -1;
+			if(rollPrev == -1) rollPrev = liLen -1;
+				rollInd++;
+				liSel.eq(rollPrev).css({left:liSel.width()*-1,zIndex : rollInd, display:"block"});
+				liSel.eq(rollPrev).stop().animate({left:0},2500,"easeInOutCubic");
+				rollNum = rollPrev;
 		};
 	});
+
 	$(".next_btn").click(function(e){
 		e.preventDefault();
-		if(rollNum <= 9){
-			rollNum++;
-			if(rollNum == 9) rollNum = 0;
-			 rollingMove();
+		if(rollNum <= liLen-1){
+			rollNext = rollNum +1;
+			if(rollNext == liLen) rollNext = 0;
+				rollInd++;
+				liSel.eq(rollNext).css({left:liSel.width(),zIndex : rollInd, display:"block"});
+				liSel.eq(rollNext).stop().animate({left:0},2500,"easeInOutCubic");
+				rollNum = rollNext;
 		};
 	});
-	$(".stop_play_btn").click(function(e){
+
+	$(".stop_btn").click(function(e){
 		e.preventDefault();
 		if(playState == true){
 			clearInterval(rollOn);
+			$(".stop_btn>a").html("<i class='fas fa-play'></i>");
 			playState = false;
 		}else{
 			rollingOn();
+			$(".stop_btn>a").html("<i class='fas fa-stop'></i>");	
 			playState = true;
 		}
 		
 	});
+	$("#toggle_btn").click(function(){
+		if(toggleState == true){
+			$(".toggle").addClass("on");
+			$("#gnb").stop().animate({right:0},600);
+			toggleState = false;
+		
+		}else if(toggleState == false){
+			$(".toggle").removeClass("on");
+			$("#gnb").stop().animate({right:-200},600);
+			toggleState = true;
+		};
+	})
 
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------
@@ -121,16 +154,11 @@ $(function(){
 	};
 
 	
-	// main functions---------------------
-
-	function rollingMove(){  
-		var x = (rollNum * 100 * -1)+"vw";
-		$(".rolling_bg>ul").animate({left:x},1000);
-	};
+	// main rolling function()---------------------
 
 	function rollingOn(){
 		rollOn = setInterval(function(){
 			$(".next_btn").trigger("click")
-		},6000);
+		},6500);
 	};
 });

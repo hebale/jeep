@@ -6,7 +6,9 @@
 	<title>jeep_main</title>
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/jquery.easing.min.js"></script>
 	<script src="./js/main.js"></script>
 </head>
 </head>
@@ -14,13 +16,13 @@
 	<div id="main_container">
 		<h1 class="logo"><a href="./main.html"><img src="./images/logo_wh.png" alt="logo"></a></h1>
 		<div id="controls">
-			<div class="prev_btn"><a href="#">prev</a></div>
-			<div class="stop_play_btn"><a href="#">stop/play</a></div>
-			<div class="next_btn"><a href="#">next</a></div>
+			<div class="prev_btn"><a href="#"><i class="fas fa-step-backward"></i></a></div>
+			<div class="stop_btn"><a href="#"><i class="fas fa-stop"></i></a></div>
+			<div class="next_btn"><a href="#"><i class="fas fa-step-forward"></i></a></div>
 		</div>
 		<section class="rolling_bg">
 			<ul>
-				<li>rolling01</li>
+				<li style="z-index:1">rolling01</li>
 				<li>rolling02</li>
 				<li>rolling03</li>
 				<li>rolling04</li>
@@ -32,14 +34,16 @@
 			</ul>
 		</section>
 		<nav id="gnb">
+			<div id="toggle_btn">
+				<div class="toggle"></div>
+			</div>
 			<ul>
 				<li><a href="#">brand</a></li>
 				<li><a href="#">models</a></li>
-				<li><a href="#">spec</a></li>
+				<li><a href="#">spec</a></li>	
 				<li><a href="#">gallery</a></li>
 			</ul>
 		</nav>
-
 	</div>
 </body>
 </html>
