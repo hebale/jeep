@@ -54,23 +54,38 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 	#controls>div>a{display:block; line-height:30px; width:30px; _border:1px solid red; color:#fff; text-align:center;}
 
 /*------------------------------
+	  jeep history page css
+------------------------------*/
+#history_wrap{position:relative; width:100%; height:100vh; overflow:hidden;}
+	.contents_wrap{position:absolute; width:10000px; height:80%; left:0; top:20vh; background:rgba(255,0,0,0.1);}
+		.line{position:absolute; width:0; height:5px; background:#000; bottom:80px;}
+
+
+
+
+
+
+
+
+/*------------------------------
 	  jeep gallery page css
 ------------------------------*/
-button{position:absolute; top:50px; left:50px; width:100px; height:70px; z-index:1000;}
+button{position:absolute; top:50px; right:50px; width:100px; height:70px; z-index:1000;}
 
 section#gallery_wrap{width:1320px; margin:250px auto 0 auto; _background:red;}
 section#gallery_wrap:after{content:""; display:block; clear:both;}
 	#modal{display:none; position:absolute; width:100%; height:100%; top:0; left:0; background:rgba(30,30,30,0.7); z-index:100}
+	/*모달이미지 닫기버튼 배경을 선택시 종료 새로 마크업 필요*/
 		.modal_photo{width:1200px; height:583px; margin:150px auto 0 auto;}
 		.modal_photo>div{display:none; width:1200px; height:583px;}
-		.modal_nav{width:1200px; position:relative; height:132px; margin:0 auto; overflow:hidden; _margin-top:5px; border:6px solid #000; border-width:6px 0 0 0;}
+		.modal_nav{width:1200px; position:relative; height:132px; margin:0 auto; overflow:hidden; _margin-top:5px; border:6px solid #ffba00; border-width:6px 0 0 0;}
 		.modal_nav>ul{width:5280px; position:absolute; left:480px; padding-top:12px;}
 		.modal_nav>ul:after{content:""; display:block; clear:both;}
 		.modal_nav>ul>li{float:Left;}
 		.modal_nav>ul>li.on>a:before{display:none;}
 		.modal_nav>ul>li>a{display:block; position:relative; width:240px;}
 		.modal_nav>ul>li>a:before{content:""; display:block; position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);}
-			.triangle{position:absolute; width:20px; height:20px; top:-16px; left:50%; margin-left:-14px; transform:rotate(45deg); background:#000;}
+			.triangle{position:absolute; width:20px; height:20px; top:-16px; left:50%; margin-left:-14px; transform:rotate(45deg); background:#ffba00;}
 
 	#thumb_nail{position:relative; width:100%; _display:none;}
 		#view_point{position:relative; width:1200px; height:446px; margin:0 auto; overflow:hidden;}
@@ -88,6 +103,6 @@ section#gallery_wrap:after{content:""; display:block; clear:both;}
 			.thumb_nav>li>a:before{content:""; display:block; position:absolute; height:142px; width:292.5px; background:#000; opacity:0.6; transition:0.3s;}
 
 		.thumb_left_btn,
-		.thumb_right_btn{position:absolute; width:50px; height:446px; background:black; _z-index:100; top:0; font-size:12px; text-align:center; line-height:446px; color:#fff; cursor:pointer;}
+		.thumb_right_btn{position:absolute; width:50px; height:446px; background:black; _z-index:100; top:0; font-size:12px; text-align:center; line-height:446px; color:#ffba00; cursor:pointer;}
 		.thumb_left_btn{left:0;}
 		.thumb_right_btn{right:0;}

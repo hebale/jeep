@@ -14,6 +14,9 @@ var rollNum = 0; //main rolling 현재 인덱스 초기값
 var playState = true; //main rolling stop버튼 상태값
 var rollInd = 1; //main rolling z-인덱스 초기값
 
+var rollz = 0;
+
+
 $(function(){
 	//------------------------------------------------------------------
 	//-------------------- jeep main page jquery -----------------------
@@ -74,6 +77,27 @@ $(function(){
 			toggleState = true;
 		};
 	})
+
+	//------------------------------------------------------------------
+	//-------------------- jeep history page jquery --------------------
+	//------------------------------------------------------------------
+
+	
+	$(".contents_wrap").on("mousewheel DOMMouseScroll", function(e){
+		var y = event.deltaY;
+		rollz += parseInt(y);
+		console.log(rollz);
+		if(rollz <= 0) rollz = 0;
+		if(rollz >= 9000) rollz = 9000;
+
+		console.log(rollz);
+
+		$(".contents_wrap").css("left", rollz *-1);
+
+		$(".line").stop().animate({width: rollz *5},500);
+	})
+
+
 
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------
