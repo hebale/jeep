@@ -70,7 +70,7 @@ $(function(){
 		
 		}else if(toggleState == false){
 			$(".toggle").removeClass("on");
-			$("#gnb").stop().animate({right:-200},600);
+			$("#gnb").stop().animate({right:-300},600);
 			toggleState = true;
 		};
 	})

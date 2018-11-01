@@ -4,7 +4,7 @@ img{width:100%;}
 	    jeep main page css
 ------------------------------*/
 div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;}
-	.logo{position:fixed; width:70px; top:30px; left:50px; z-index:99999;}
+	.logo{position:fixed; width:80px; top:30px; left:50px; z-index:99999;}
 	
 	.rolling_bg{_overflow:hidden; position:relative;}
 	.rolling_bg>ul{width:100vw; position:absolute;}
@@ -20,11 +20,18 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 	.rolling_bg>ul>li:nth-child(8){background-image:url(../images/main/rolling08.jpg);}
 	.rolling_bg>ul>li:nth-child(9){background-image:url(../images/main/rolling09.jpg);}
 
-	#gnb{_display:none; position:fixed; width:200px; height:100vh; top:0; right:-200px; background:#000; z-index:99999;}
-	#gnb>ul{position:absolute; top:30%; left:40px;}
+	#gnb{_display:none; position:fixed; width:300px; height:100vh; top:0; right:-300px; background:#000; z-index:99999;}
+	#gnb>ul{position:absolute; top:25%; left:70px;}
 	#gnb>ul>li{}
 	#gnb>ul>li+li{margin-top:30px;}
-	#gnb>ul>li>a{display:block; color:#fff; text-transform:uppercase; font-size:20px; font-weight:bold; letter-spacing:1px;}
+	#gnb>ul>li>a{color:#fff; text-transform:uppercase; font-size:20px; font-weight:bold; letter-spacing:3px; position:relative;}
+	#gnb>ul>li>a:before,
+	#gnb>ul>li>a:after{content:""; display:block; position:absolute; width:100%; height:2px; background:#ffba00;  transition:none;  transform:scale(0, 1);}
+	#gnb>ul>li>a:before{bottom:-3px; transform-origin: 0 0;}
+	#gnb>ul>li>a:after{bottom:-3px; transform-origin:100% 0; transition:0.5s;}
+	/*#gnb>ul>li:hover>a{color:#ffba00; transition:0.5s;}*/
+	#gnb>ul>li:hover>a:before{transform:scale(1); transition:0.5s;} 
+	#gnb>ul>li:hover>a:after{transform:scale(1); transition-delay:0.5s;}
 		#toggle_btn{position:absolute; width:80px; height:80px; left:-80px; top:50%; margin-top:-40px; background:rgba(0,0,0,0.7); z-index:99999;}
 			.toggle,
 			.toggle:after,
@@ -34,6 +41,11 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 			.toggle.on{transform:rotate(-360deg); width:45px;}
 			.toggle.on:after{transform:rotate(45deg) translate(18px,-11px); width:30px;}
 			.toggle.on:before{transform:rotate(-45deg) translate(18px,11px); width:30px;}
+
+		.sns{position:absolute; left:50%; margin-left:-65px; bottom:50px; width:130px; _border:1px solid yellow;}
+		.sns:after{content:""; display:block; clear:both;}
+		.sns>div{float:left; width:30px; height:30px;}
+		.sns>div+div{margin-left:20px;}
 
 	#controls{position:absolute; width:120px; bottom:20px; left:50%; margin-left:-60px; z-index:99999;}
 	#controls:after{content:""; display:block; clear:both;}
