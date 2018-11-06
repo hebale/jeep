@@ -14,10 +14,26 @@ var rollNum = 0; //main rolling 현재 인덱스 초기값
 var playState = true; //main rolling stop버튼 상태값
 var rollInd = 1; //main rolling z-인덱스 초기값
 
+var subMenuState = true;
 var rollz = 0;
 
 
 $(function(){
+	//------------------------------------------------------------------
+	//-------------------- jeep gnb menu jquery ------------------------
+	//------------------------------------------------------------------
+	$("#gnb>ul>li").click(function(e){
+		if($(this).index() == 1){
+			e.preventDefault();
+			if(subMenuState == true){
+				$("#subMenu").stop().animate({height:135},600);
+				subMenuState = false;
+			}else{
+				$("#subMenu").stop().animate({height:0},600);
+				subMenuState = true;
+			}
+		}
+	})
 	//------------------------------------------------------------------
 	//-------------------- jeep main page jquery -----------------------
 	//------------------------------------------------------------------
@@ -81,7 +97,6 @@ $(function(){
 	//------------------------------------------------------------------
 	//-------------------- jeep history page jquery --------------------
 	//------------------------------------------------------------------
-
 	
 	$(".contents_wrap").on("mousewheel DOMMouseScroll", function(e){
 		var y = event.deltaY;
@@ -96,8 +111,6 @@ $(function(){
 
 		$(".line").stop().animate({width: rollz *5},500);
 	})
-
-
 
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------

@@ -1,5 +1,45 @@
 @charset "utf-8";
 img{width:100%;}
+body{font-family: 'Roboto', sans-serif;}
+/*------------------------------
+	    jeep gnb menu css
+------------------------------*/
+#gnb{_display:none; position:fixed; width:300px; height:100vh; top:0; right:-300px; background:#000; z-index:99999;}
+	#gnb>ul{position:absolute; width:100%; top:25%;}
+	#gnb>ul>li{width:100%; padding:15px 0 15px 70px;}
+	#gnb>ul>li:first-child{margin-top:0px;}
+	#gnb>ul>li>a{color:#fff; text-transform:uppercase; font-size:20px; font-weight:bold; letter-spacing:3px; position:relative;}
+	#gnb>ul>li>a:before,
+	#gnb>ul>li>a:after{content:""; display:block; position:absolute; width:100%; height:3px; background:#ffba00; border-radius:1.5px; transition:none;  transform:scale(0, 1);}
+	#gnb>ul>li>a:before{bottom:-3px; transform-origin: 0 0;}
+	#gnb>ul>li>a:after{bottom:-3px; transform-origin:100% 0; transition:0.5s;}
+	/*#gnb>ul>li:hover>a{color:#ffba00; transition:0.5s;}*/
+	#gnb>ul>li:hover>a:before{transform:scale(1); transition:0.5s;} 
+	#gnb>ul>li:hover>a:after{transform:scale(1); transition-delay:0.3s;}
+		#toggle_btn{position:absolute; width:80px; height:80px; left:-80px; top:50%; margin-top:-40px; background:rgba(0,0,0,0.7); z-index:99999;}
+			.toggle,
+			.toggle:after,
+			.toggle:before{position:relative; display:block; width:50px; height:4px; top:38px; left:15px; background:#fff; transform-origin: 50% 50%; transition:0.6s;}
+			.toggle:after{content:""; position:absolute; top:-15px; left:0;}
+			.toggle:before{content:""; position:absolute; top:15px; left:0;}
+			.toggle.on{transform:rotate(-360deg); width:45px;}
+			.toggle.on:after{transform:rotate(45deg) translate(18px,-11px); width:30px;}
+			.toggle.on:before{transform:rotate(-45deg) translate(18px,11px); width:30px;}
+
+		.sns{position:absolute; left:50%; margin-left:-65px; bottom:50px; width:130px; _border:1px solid yellow;}
+		.sns:after{content:""; display:block; clear:both;}
+		.sns>div{float:left; width:30px; height:30px;}
+		.sns>div+div{margin-left:20px;}
+
+		#subMenu{width:100%; height:0; background:#222; overflow:hidden;}
+		#subMenu>div{width:100%; padding-left:30%; margin:12px 0 12px 0;}
+		#subMenu>div:first-child{margin-top:12px;}
+		#subMenu>div+div{margin-top:5px;}
+		#subMenu>div>a{font-size:14px; position:relative; color:#fff; text-transform:uppercase; letter-spacing:2px;}
+		#subMenu>div>a:before{content:""; display:block; position:absolute; left:-15px; top:7px;  height:6px; width:6px; background:#ffba00; opacity:0; transition:0.4s;}
+		#subMenu>div>a:hover:before{opacity:1;}
+		#subMenu>div>a:hover{color:#ffba00;}
+
 /*------------------------------
 	    jeep main page css
 ------------------------------*/
@@ -20,39 +60,23 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 	.rolling_bg>ul>li:nth-child(8){background-image:url(../images/main/rolling08.jpg);}
 	.rolling_bg>ul>li:nth-child(9){background-image:url(../images/main/rolling09.jpg);}
 
-	#gnb{_display:none; position:fixed; width:300px; height:100vh; top:0; right:-300px; background:#000; z-index:99999;}
-	#gnb>ul{position:absolute; top:25%; left:70px;}
-	#gnb>ul>li{}
-	#gnb>ul>li+li{margin-top:30px;}
-	#gnb>ul>li>a{color:#fff; text-transform:uppercase; font-size:20px; font-weight:bold; letter-spacing:3px; position:relative;}
-	#gnb>ul>li>a:before,
-	#gnb>ul>li>a:after{content:""; display:block; position:absolute; width:100%; height:2px; background:#ffba00;  transition:none;  transform:scale(0, 1);}
-	#gnb>ul>li>a:before{bottom:-3px; transform-origin: 0 0;}
-	#gnb>ul>li>a:after{bottom:-3px; transform-origin:100% 0; transition:0.5s;}
-	/*#gnb>ul>li:hover>a{color:#ffba00; transition:0.5s;}*/
-	#gnb>ul>li:hover>a:before{transform:scale(1); transition:0.5s;} 
-	#gnb>ul>li:hover>a:after{transform:scale(1); transition-delay:0.5s;}
-		#toggle_btn{position:absolute; width:80px; height:80px; left:-80px; top:50%; margin-top:-40px; background:rgba(0,0,0,0.7); z-index:99999;}
-			.toggle,
-			.toggle:after,
-			.toggle:before{position:relative; display:block; width:50px; height:4px; top:38px; left:15px; background:#fff; transform-origin: 50% 50%; transition:0.6s;}
-			.toggle:after{content:""; position:absolute; top:-15px; left:0;}
-			.toggle:before{content:""; position:absolute; top:15px; left:0;}
-			.toggle.on{transform:rotate(-360deg); width:45px;}
-			.toggle.on:after{transform:rotate(45deg) translate(18px,-11px); width:30px;}
-			.toggle.on:before{transform:rotate(-45deg) translate(18px,11px); width:30px;}
-
-		.sns{position:absolute; left:50%; margin-left:-65px; bottom:50px; width:130px; _border:1px solid yellow;}
-		.sns:after{content:""; display:block; clear:both;}
-		.sns>div{float:left; width:30px; height:30px;}
-		.sns>div+div{margin-left:20px;}
-
 	#controls{position:absolute; width:120px; bottom:20px; left:50%; margin-left:-60px; z-index:99999;}
 	#controls:after{content:""; display:block; clear:both;}
 	#controls>div{float:left; font-size:14px;}
 	#controls>div+div{margin-left:15px;}
 	#controls>div>a{display:block; line-height:30px; width:30px; _border:1px solid red; color:#fff; text-align:center;}
-
+/*------------------------------
+	  jeep models page css
+------------------------------*/
+	#botNav{position:fixed; bottom:40px; left:calc(50% - 300px); width:600px; _border:1px dotted red;}
+	#botNav>ul{width:100%;}
+	#botNav>ul:after{content:""; display:block; clear:both;}
+	#botNav>ul>li{float:left;}
+	#botNav>ul>li+li{margin-left:36px;}
+	#botNav>ul>li>a{display:block; font-size:14px; line-height:25px; text-transform:uppercase; letter-spacing:1.3px;}
+	#botNav>ul>li>a>span{font-size:10px;}
+		.selNav{position:absolute; width:75px; height:3px; top:-4px; background:#ffba00;}
+		.selNav:before{content:""; position:absolute; display:block; width:10px; height:10px; top:-2px; background:#ffba00; transform-origin:50% 50%;transform:rotate(45deg);}
 /*------------------------------
 	  jeep history page css
 ------------------------------*/
