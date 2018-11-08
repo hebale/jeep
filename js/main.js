@@ -111,7 +111,52 @@ $(function(){
 
 		$(".line").stop().animate({width: rollz *5},500);
 	})
+	//------------------------------------------------------------------
+	//-------------------- jeep models page jquery -----------------------
+	//------------------------------------------------------------------
+	selNavInit();
+	colorsetInit();
 
+	$("#botNav>ul>li>a").click(function(){
+		var subNavWid = $(this).width();
+		var subNavOffLeft = $(this).offset().left - $("#botNav>ul>li:nth-child(1)>a").offset().left;
+
+		$("#botNav>ul>li").removeClass("on");
+		$(this).parent().addClass("on");
+		$(".selNavTri").stop().animate({left:subNavOffLeft+(subNavWid /2)-5},600,"easeOutBack");
+		$(".selNav").stop().animate({width:subNavWid, left:subNavOffLeft},600,"easeOutBack");
+	})
+
+	$(".car_tabs>li").click(function(){
+		var ind = $(this).index();
+		var curH = $(".car_set>div").eq(ind).find("div:nth-of-type(2)").height();
+		var selDiv = $(".car_set").find(".on").index();
+		
+		console.log(curH);
+		if(ind == selDiv) return false;
+
+		$(".car_set>div").removeClass("on");
+		$(".car_set>div").eq(ind).addClass("on");
+		
+		$(".car_set>div").css("display","none");
+		$(".car_set>div").eq(ind).css("display","block");
+		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").css("left",0);
+		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").stop().animate({left:100});
+		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").css("height",0);
+		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").stop().animate({height:curH});
+	})
+
+	function selNavInit(){
+		var subNavInit = $("#botNav>ul>li:nth-child(1)>a").width();
+		$(".selNavTri").css("left",(subNavInit /2)-5);
+		$(".selNav").css("width",subNavInit);
+	}
+	function colorsetInit(){
+		var colorSetLen = $(".car_color").length;
+		for(var i=0; i<colorSetLen; i++){
+			$(".car_color").eq(i).css("margin-left",-1*$(".car_color").eq(i).width() / 2);
+		}
+	}
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------
 	//------------------------------------------------------------------
