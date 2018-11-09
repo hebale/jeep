@@ -116,6 +116,7 @@ $(function(){
 	//------------------------------------------------------------------
 	selNavInit();
 	colorsetInit();
+	modalsSt(); // -----------------------modals 페이지 onload 함수
 
 	$("#botNav>ul>li>a").click(function(){
 		var subNavWid = $(this).width();
@@ -129,23 +130,33 @@ $(function(){
 
 	$(".car_tabs>li").click(function(){
 		var ind = $(this).index();
-		var curH = $(".car_set>div").eq(ind).find("div:nth-of-type(2)").height();
+		var curH = 0;
 		var selDiv = $(".car_set").find(".on").index();
-		
-		console.log(curH);
+	
 		if(ind == selDiv) return false;
 
 		$(".car_set>div").removeClass("on");
-		$(".car_set>div").eq(ind).addClass("on");
-		
+		$(".car_set>div").eq(ind).addClass("on");		
 		$(".car_set>div").css("display","none");
 		$(".car_set>div").eq(ind).css("display","block");
-		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").css("left",0);
-		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").stop().animate({left:100});
-		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").css("height",0);
-		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").stop().animate({height:curH});
-	})
 
+		curH = $(".car_set>div").eq(ind).find("div:nth-of-type(2)").height();
+		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").css("left",0);
+		$(".car_set>div").eq(ind).find("div:nth-of-type(1)").stop().animate({left:100},600);
+		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").css({height:0, paddingTop:0, paddingBottom:0});
+		$(".car_set>div").eq(ind).find("div:nth-of-type(2)").stop().animate({height:curH,paddingTop:25,paddingBottom:25},1000,"easeOutElastic");
+	})
+	function modalsSt(){                  
+		$(".car_set>div").removeClass("on");
+		$(".car_set>div").eq(0).addClass("on");		
+		$(".car_set>div").eq(0).css("display","block");
+
+		var curH = $(".car_set>div").eq(0).find("div:nth-of-type(2)").height();
+		$(".car_set>div").eq(0).find("div:nth-of-type(1)").css("left",0);
+		$(".car_set>div").eq(0).find("div:nth-of-type(1)").delay(200).animate({left:100},600);
+		$(".car_set>div").eq(0).find("div:nth-of-type(2)").css({height:0, paddingTop:0, paddingBottom:0});
+		$(".car_set>div").eq(0).find("div:nth-of-type(2)").delay(200).animate({height:curH,paddingTop:25,paddingBottom:25},1000,"easeOutElastic");
+	}
 	function selNavInit(){
 		var subNavInit = $("#botNav>ul>li:nth-child(1)>a").width();
 		$(".selNavTri").css("left",(subNavInit /2)-5);

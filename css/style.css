@@ -68,46 +68,73 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 /*------------------------------
 	  jeep models page css
 ------------------------------*/
-	#botNav{position:fixed; bottom:40px; left:calc(50% - 300px); width:600px; _border:1px dotted red;}
+	#botNav{position:fixed; bottom:40px; left:calc(50% - 300px); width:600px; _border:1px dotted red; z-index:100;}
 	#botNav>ul{width:100%;}
 	#botNav>ul:after{content:""; display:block; clear:both;}
 	#botNav>ul>li{float:left; position:relative;}
 	#botNav>ul>li.on>a{color:#333; font-weight:bold;}
 	#botNav>ul>li+li{margin-left:36px;}
 	#botNav>ul>li+li:before{content:""; position:absolute; display:block; width:1px; top:7px; left:-18px; height:11px; background:#bbb;}
-	#botNav>ul>li>a{display:block; color:#ddd; font-size:14px; line-height:25px; text-transform:uppercase; letter-spacing:1.3px; transition:0.5s;}
+	#botNav>ul>li>a{display:block; color:#ddd; font-size:14px; line-height:25px; text-transform:uppercase; letter-spacing:1px; transition:0.5s;}
 	#botNav>ul>li>a>span{font-size:10px;}
 		.selNav{position:absolute; width:0; height:3px; top:-4px; background:#ffba00; _overflow:hidden;}
 		.selNavTri{position:absolute; width:0; left:10px; top:-14px; border:5px solid transparent; border-bottom-color:#ffba00;}
-	
-#mo_overview{position:relative; height:calc(100vh - 220px); min-height:700px; margin-top:8%; _border:1px dotted red;}
-	.car_set{position:relative; width:1200px; height:100%; left:50vw; margin-left:-600px; _border:1px dotted green; _overflow:hidden;}
-		.car_info{display:none; position:relative; width:100%; _border:1px dotted orange;}
-		.car_info>div:nth-of-type(1){position:absolute; width:620px; top:180px; left:110px; z-index:50;}
-		.car_info>div:nth-of-type(2){position:absolute; width:500px; top:10px; padding:25px 50px; right:0; overflow:hidden; border:1.2px solid #ddd;}
-		.car_info>div:nth-of-type(2)>p:nth-of-type(1){text-transform:uppercase; letter-spacing:1px;}
-		.car_info>div:nth-of-type(2)>p:nth-of-type(2){font-size:35px; font-weight:bold; text-transform:uppercase; line-height:32px; letter-spacing:1px;}
-		.car_info>div:nth-of-type(2)>p:nth-of-type(3){margin-top:15px; font-size:13px; line-height:22px;}
-		
-		.car_tabs{position:absolute; top:240px; right:200px;}
-		.car_tabs>li{width:220px; cursor:pointer;}
-		.car_tabs>li:after{content:""; display:block; clear:both;}
-		.car_tabs>li>p{position:relative; float:left; line-height:60px; font-size:12px;letter-spacing: 2px;}
-		.car_tabs>li>img{display:block; float:right; width:150px;}
-		.car_tabs>li+li{margin-top:10px;}
-		
 
-		.car_color{position:absolute; top:550px; left:50%; }
-		.car_color:after{content:""; display:block; clear:both;}
-		.car_color>li{float:left; width:40px; height:40px; background:red;}
-		.car_color>li+li{margin-left:10px;}
+section.model_wrap{_height:100vh; width:10000px; border:1px dotted purple;}
+section.model_wrap:after{content:""; display:block; clear:both;}
+	#mo_overview{float:left; position:relative; width:200vw; height:calc(88vh - 220px); min-height:700px; margin-top:12vh; border:1px dotted red;}
+	#mo_overview:after{content:""; display:block; clear:both;}
+		
+		/*----------overview start-----------*/
+		.car_set{float:left; position:relative; width:1200px; height:100%; margin-left:calc(50vw - 600px); border:1px dotted green; _overflow:hidden;}
+			.car_info{display:none; position:relative; width:100%; _border:1px dotted orange;}
+			.car_info>div:nth-of-type(1){position:absolute; width:620px; top:180px; left:110px; z-index:50;}
+			.car_info>div:nth-of-type(2){position:absolute; width:420px; padding:25px 40px; right:150px; overflow:hidden; border:1.2px solid #ddd;}
+			.car_info>div:nth-of-type(2)>p:nth-of-type(1){text-transform:uppercase; letter-spacing:1px;}
+			.car_info>div:nth-of-type(2)>p:nth-of-type(2){font-size:35px; font-weight:bold; text-transform:uppercase; line-height:32px; letter-spacing:1px;}
+			.car_info>div:nth-of-type(2)>p:nth-of-type(3){margin-top:15px; font-size:13px; line-height:22px;}
+			
+			.car_tabs{position:absolute; top:240px; right:200px;}
+			.car_tabs>li{width:220px; cursor:pointer;}
+			.car_tabs>li:after{content:""; display:block; clear:both;}
+			.car_tabs>li>p{position:relative; float:left; width:50px; text-align:right; line-height:60px; font-size:12px;letter-spacing: 2px;}
+			.car_tabs>li>img{display:block; float:right; width:150px;}
+			.car_tabs>li+li{margin-top:10px;}		
+
+			.car_color{display:none; position:absolute; top:560px; left:50%;}
+			.car_color:after{content:""; display:block; clear:both;}
+			.car_color>li{float:left; width:40px; height:40px; cursor:pointer;}
+			.car_color>li+li{margin-left:15px;}
+
+		.car_cha{float:left; position:relative; width:1200px; margin-left:calc((50vw - 600px)*2); height:100%; border:1px dotted green; _overflow:hidden;}
+			.car_cha>ul{margin-top:50px;}
+			.car_cha>ul:after{content:""; display:block; clear:both;}
+			.car_cha>ul>li{float:left; width:250px; _height:250px; border:1.2px solid #ddd; overflow:hidden;}
+			.car_cha>ul>li+li{margin-left:20px;}
+			.car_cha>ul>li>p:nth-of-type(1){padding:15px 20px; text-align:center; font-weight:bold; margin-top:20px;}
+			.car_cha>ul>li>p:nth-of-type(2){font-size:14px; padding:0 15px; padding-bottom:30px; line-height:20px;}
+		/*----------overview end-----------*/
+
+
+
+	/*#mo_exterior{float:left; width:20%; height:calc(88vh - 220px); min-height:700px; margin-top:12vh; border:1px dotted orange;}*/
+
+
+
+
+
+
+
+
+
+
 
 
 
 /*------------------------------
 	  jeep history page css
 ------------------------------*/
-#history_wrap{position:relative; width:100%; height:100vh; overflow:hidden;}
+#history_wrap{position:relative; width:100%;  height:100vh; overflow:hidden;}
 	.contents_wrap{position:absolute; width:10000px; height:80%; left:0; top:20vh; background:rgba(255,0,0,0.1);}
 		.line{position:absolute; width:0; height:5px; background:#000; bottom:80px;}
 
