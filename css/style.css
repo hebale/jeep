@@ -1,6 +1,7 @@
 @charset "utf-8";
 img{width:100%;}
-body{font-family: 'Roboto', sans-serif;}
+body{font-family: 'Roboto', sans-serif; height:6300px; overflow-y:scroll;}
+
 /*------------------------------
 	    jeep gnb menu css
 ------------------------------*/
@@ -80,10 +81,10 @@ div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;
 		.selNav{position:absolute; width:0; height:3px; top:-4px; background:#ffba00; _overflow:hidden;}
 		.selNavTri{position:absolute; width:0; left:10px; top:-14px; border:5px solid transparent; border-bottom-color:#ffba00;}
 
-section.model_wrap{_height:100vh; width:10000px; border:1px dotted purple;}
-section.model_wrap:after{content:""; display:block; clear:both;}
-	#mo_overview{float:left; position:relative; _width:200vw; height:calc(88vh - 220px); min-height:700px; margin-top:12vh; box-sizing:border-box; background:rgba(0,0,255,0.2);;}
-	#mo_overview:after{content:""; display:block; clear:both;}
+section#model_wrap{position:fixed; _height:100vh; width:10000px; border:1px dotted purple;}
+section#model_wrap:after{content:""; display:block; clear:both;}
+	.mo_overview{float:left; position:relative; _width:200vw; height:calc(88vh - 220px); min-height:700px; margin-top:12vh; box-sizing:border-box; background:rgba(0,0,255,0.2);;}
+	.mo_overview:after{content:""; display:block; clear:both;}
 		
 		/*----------overview start-----------*/
 		.car_set{float:left; position:relative; width:1200px; height:100%; margin-left:calc(50vw - 600px); background:rgba(0,255,0,0.2); _overflow:hidden;}
@@ -135,10 +136,26 @@ section.model_wrap:after{content:""; display:block; clear:both;}
 /*------------------------------
 	  jeep history page css
 ------------------------------*/
-#history_wrap{position:relative; width:100%;  height:100vh; overflow:hidden;}
-	.contents_wrap{position:absolute; width:10000px; height:80%; left:0; top:20vh; background:rgba(255,0,0,0.1);}
-		.line{position:absolute; width:0; height:5px; background:#000; bottom:80px;}
+#history_wrap{position:fixed; width:7500px; _height:100vh; _border:1px dotted purple;}
+	.contents_wrap{position:absolute;  height:calc(88vh - 220px); left:0; min-height:700px; margin-top:12vh; overflow:hidden; _background:rgba(255,0,0,0.1);}
+	.contents_wrap:after{content:""; display:block; clear:both;}	
+		#line{position:absolute; width:100%; bottom:0; height:3px; width:calc(100% - 166px); background:#333;}
+	
+	.contents_wrap{}
+	.contents_wrap>div{float:left; position:relative; width:330px; border:1.2px solid #ddd; margin-top:80px; margin-left:450px; background:#fff;}
+	.contents_wrap>div:nth-of-type(1){margin-left:50vh;}
+	.contents_wrap>div>div:nth-of-type(1){padding:25px 40px; right:150px; overflow:hidden;}
+	.contents_wrap>div>div:nth-of-type(2){position:absolute; top:0; _left:0; left:164px; height:1000px; width:1px; background:#333; z-index:-1;}
+	.contents_wrap>div>div>h2{}
+	.contents_wrap>div>div>p{margin-top:20px;font-size:14px; line-height:24px;}
 
+	.contents_wrap>div:nth-of-type(2){margin-top:200px;}
+	.contents_wrap>div:nth-of-type(3){margin-top:150px;}
+	.contents_wrap>div:nth-of-type(4){margin-top:100px;}
+	.contents_wrap>div:nth-of-type(5){margin-top:180px;}
+	.contents_wrap>div:nth-of-type(6){margin-top:100px;}
+	.contents_wrap>div:nth-of-type(7){margin-top:80px;}
+	.contents_wrap>div:nth-of-type(8){margin-top:200px;}
 
 
 

@@ -97,8 +97,17 @@ $(function(){
 	//------------------------------------------------------------------
 	//-------------------- jeep history page jquery --------------------
 	//------------------------------------------------------------------
-	
-	$(".contents_wrap").on("mousewheel DOMMouseScroll", function(e){
+	$(window).scroll(function(){
+		
+		var scrollL = $("html,body").scrollTop();
+
+		console.log(scrollL);
+
+		$("#model_wrap").stop().animate({left:-1*scrollL},500);
+		$("#history_wrap").stop().animate({left:-1*scrollL},500);
+
+	})
+	/*$(".contents_wrap").on("mousewheel DOMMouseScroll", function(e){
 		var y = event.deltaY;
 		rollz += parseInt(y);
 		console.log(rollz);
@@ -110,7 +119,7 @@ $(function(){
 		$(".contents_wrap").css("left", rollz *-1);
 
 		$(".line").stop().animate({width: rollz *5},500);
-	})
+	})*/
 	//------------------------------------------------------------------
 	//-------------------- jeep models page jquery -----------------------
 	//------------------------------------------------------------------
@@ -254,4 +263,12 @@ $(function(){
 			$(".next_btn").trigger("click")
 		},6500);
 	};
+
+	
 });
+// $("html,body").mousewheel(function(event, delta) {
+
+// 	this.scrollLeft -= (delta * 30);
+
+// 	event.preventDefault();
+// 	});
