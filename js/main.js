@@ -206,12 +206,9 @@ $(function(){
 		imgNum = parseInt(imgAlt.substr(imgLen-2,2));
 		modalImg = $(".modal_photo").find("[alt =" + imgAlt + "]").parent();
 		modalNavImg = $(".modal_nav").find("[alt =" + imgAlt + "]").parents("li");
-		
 		//console.log(imgNum);
-		//console.log(imgAlt);
-		
+		//console.log(imgAlt);		
 		$("#modal").css("display","block");
-
 		$(".modal_photo>div").css("display","none");
 		modalImg.css("display","block");
 		
@@ -219,10 +216,11 @@ $(function(){
 		modalNavImg.addClass("on");
 
 		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)})
+
+		$(".modal_close").css({backgroundImage:"url(./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg)"});
 	});
 
 	$(".modal_nav>ul>li").click(function(){
-
 		imgAlt = $(this).find("img").attr("alt");
 		imgLen = imgAlt.length;
 		imgNum = parseInt(imgAlt.substr(imgLen-2,2));
@@ -235,20 +233,20 @@ $(function(){
 		$(".modal_nav>ul>li").removeClass();
 		modalNavImg.addClass("on");
 
-		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)})
+		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)});
+		$(".modal_close").css({backgroundImage:"url(./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg)"});
+	})
+
+
+
+	$(".modal_close").click(function(){
+		$("#modal").css("display","none");
+		$(".thumb_left_btn").css("display","block");
+		$(".thumb_right_btn").css("display","block");
 	})
 
 	// 
 	// parseInt("03"); 이미지 alt 순번 리스트 num로 가져오기
-
-	$("button").click(function(){
-			$("#modal").css("display","none");
-
-			$(".thumb_left_btn").css("display","block");
-			$(".thumb_right_btn").css("display","block");
-	})
-
-
 
 	function thumbMove(){
 		var x = count * 1200 * -1;

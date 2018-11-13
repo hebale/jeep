@@ -1,6 +1,7 @@
 @charset "utf-8";
 img{width:100%;}
-body{font-family: 'Roboto', sans-serif; height:6300px; overflow-y:scroll;}
+body{font-family: 'Roboto', sans-serif; overflow-y:scroll;}
+#model_body{height:6300px;}
 
 /*------------------------------
 	    jeep gnb menu css
@@ -170,18 +171,19 @@ button{position:absolute; top:50px; right:50px; width:100px; height:70px; z-inde
 
 section#gallery_wrap{width:1320px; margin:250px auto 0 auto; _background:red;}
 section#gallery_wrap:after{content:""; display:block; clear:both;}
-	#modal{display:none; position:absolute; width:100%; height:100%; top:0; left:0; background:rgba(30,30,30,0.7); z-index:100}
+	#modal{display:none; position:absolute; width:100%; height:100%; top:0; left:0; _background:rgba(30,30,30,0.7); z-index:100}
 	/*모달이미지 닫기버튼 배경을 선택시 종료 새로 마크업 필요*/
-		.modal_photo{width:1200px; height:583px; margin:150px auto 0 auto;}
+		.modal_photo{width:1200px; height:583px; margin:150px auto 0 auto; z-index:80;}
 		.modal_photo>div{display:none; width:1200px; height:583px;}
-		.modal_nav{width:1200px; position:relative; height:132px; margin:0 auto; overflow:hidden; _margin-top:5px; border:6px solid #ffba00; border-width:6px 0 0 0;}
-		.modal_nav>ul{width:5280px; position:absolute; left:480px; padding-top:12px;}
+		.modal_nav{width:1200px; position:relative; height:132px; margin:0 auto; overflow:hidden; _margin-top:5px; border:6px solid #ffba00; border-width:6px 0 0 0; z-index:50;}
+		.modal_nav>ul{width:5760px; position:absolute; left:480px; padding-top:12px;}
 		.modal_nav>ul:after{content:""; display:block; clear:both;}
 		.modal_nav>ul>li{float:Left;}
 		.modal_nav>ul>li.on>a:before{display:none;}
 		.modal_nav>ul>li>a{display:block; position:relative; width:240px;}
 		.modal_nav>ul>li>a:before{content:""; display:block; position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);}
 			.triangle{position:absolute; width:20px; height:20px; top:-16px; left:50%; margin-left:-14px; transform:rotate(45deg); background:#ffba00;}
+		.modal_close{position:absolute; width:100%; height:100%; top:0; left:0; background-image:url(../images/gallery/gallery_bg02.jpg); background-size:cover; cursor:pointer; z-index:-1;}
 
 	#thumb_nail{position:relative; width:100%; _display:none;}
 		#view_point{position:relative; width:1200px; height:446px; margin:0 auto; overflow:hidden;}
