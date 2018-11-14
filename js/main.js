@@ -17,6 +17,7 @@ var rollInd = 1; //main rolling z-인덱스 초기값
 var subMenuState = true;
 var rollz = 0;
 
+var modalBgCount = 0; //모달 img위치 초기 설정
 
 $(function(){
 	//------------------------------------------------------------------
@@ -198,8 +199,8 @@ $(function(){
 
 	$(".thumb_nav>li").click(function(e){
 		e.preventDefault();
-		$(".thumb_left_btn").css("display","none");
-		$(".thumb_right_btn").css("display","none");
+		$(".thumb_left_btn").animate({opacity:0},300);
+		$(".thumb_right_btn").animate({opacity:0},300);
 
 		imgAlt = $(this).find("img").attr("alt");
 		imgLen = imgAlt.length;
@@ -209,6 +210,7 @@ $(function(){
 		//console.log(imgNum);
 		//console.log(imgAlt);		
 		$("#modal").css("display","block");
+		$("#modal").animate({opacity:1},300);
 		$(".modal_photo>div").css("display","none");
 		modalImg.css("display","block");
 		
@@ -217,7 +219,10 @@ $(function(){
 
 		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)})
 
-		$(".modal_close").css({backgroundImage:"url(./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg)"});
+		//$(".modal_close>img:nth-of-type(2)").attr("src","./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg")
+		$("<img src='./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg' alt="+imgAlt+">").appendTo(".modal_close");
+		$(".modal_close>img").animate({opacity:1},600);
+		if($(".modal_close>img").length > 2) $(".modal_close>img:first-child").remove();
 	});
 
 	$(".modal_nav>ul>li").click(function(){
@@ -234,17 +239,22 @@ $(function(){
 		modalNavImg.addClass("on");
 
 		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)});
-		$(".modal_close").css({backgroundImage:"url(./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg)"});
+
+		$("<img src='./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg' alt="+imgAlt+">").appendTo(".modal_close");
+		$(".modal_close>img").animate({opacity:1},600);
+		$(".modal_close>img:first-child").remove();
 	})
 
 
 
 	$(".modal_close").click(function(){
-		$("#modal").css("display","none");
-		$(".thumb_left_btn").css("display","block");
-		$(".thumb_right_btn").css("display","block");
+		$("#modal").animate({opacity:0},300,function(){
+			$("#modal").css("display","none");
+		})		
+		$(".thumb_left_btn").animate({opacity:1},300);
+		$(".thumb_right_btn").animate({opacity:1},300);
 	})
-
+ 
 	// 
 	// parseInt("03"); 이미지 alt 순번 리스트 num로 가져오기
 

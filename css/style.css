@@ -183,7 +183,8 @@ section#gallery_wrap:after{content:""; display:block; clear:both;}
 		.modal_nav>ul>li>a{display:block; position:relative; width:240px;}
 		.modal_nav>ul>li>a:before{content:""; display:block; position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.6);}
 			.triangle{position:absolute; width:20px; height:20px; top:-16px; left:50%; margin-left:-14px; transform:rotate(45deg); background:#ffba00;}
-		.modal_close{position:absolute; width:100%; height:100%; top:0; left:0; background-image:url(../images/gallery/gallery_bg02.jpg); background-size:cover; cursor:pointer; z-index:-1;}
+		.modal_close{position:absolute; width:100%; height:100%; top:0; left:0; cursor:pointer; z-index:-1;}
+		.modal_close>img{position:absolute; height:100%; opacity:0;}
 
 	#thumb_nail{position:relative; width:100%; _display:none;}
 		#view_point{position:relative; width:1200px; height:446px; margin:0 auto; overflow:hidden;}
