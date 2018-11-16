@@ -3,6 +3,7 @@ img{width:100%;}
 body{font-family: 'Roboto', sans-serif; overflow-y:scroll;}
 #model_body{height:6300px;}
 
+button{width:200px; height:70px; position:fixed; top:50px; left:50%; margin-left:-100px;}
 /*------------------------------
 	    jeep gnb menu css
 ------------------------------*/
@@ -47,7 +48,12 @@ body{font-family: 'Roboto', sans-serif; overflow-y:scroll;}
 ------------------------------*/
 div#main_container{position:relative; width:100%; height:100vh; overflow:hidden;}
 	.logo{position:fixed; width:80px; top:30px; left:50px; z-index:99999;}
-	
+	.logo>a:nth-of-type(1){}
+	.logo>a:nth-of-type(2){display:none; opacity:0;}
+	.sub_title{position:fixed; top:35px; left:140px; z-index:99999; height:30px; overflow:hidden;}
+	.sub_title>ul{margin-top:30px;}
+	.sub_title>ul>li{letter-spacing:1px; line-height:30px; color:#333;}
+		
 	.rolling_bg{_overflow:hidden; position:relative;}
 	.rolling_bg>ul{width:100vw; position:absolute;}
 	.rolling_bg>ul:after{content:""; display:block; clear:both;}

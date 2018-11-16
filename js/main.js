@@ -21,6 +21,15 @@ var modalBgCount = 0; //모달 img위치 초기 설정
 
 $(function(){
 	//------------------------------------------------------------------
+	//-------------------- jeep test btn jquery ------------------------
+	//------------------------------------------------------------------
+
+	$("button").click(function(){
+		$(".sub_title>ul").animate({marginTop:-90},600,"easeOutSine")
+	});
+
+
+	//------------------------------------------------------------------
 	//-------------------- jeep gnb menu jquery ------------------------
 	//------------------------------------------------------------------
 	$("#gnb>ul>li").click(function(e){
@@ -199,8 +208,8 @@ $(function(){
 
 	$(".thumb_nav>li").click(function(e){
 		e.preventDefault();
-		$(".thumb_left_btn").animate({opacity:0},300);
-		$(".thumb_right_btn").animate({opacity:0},300);
+		$(".thumb_left_btn").animate({opacity:0},300,"easeOutSine");
+		$(".thumb_right_btn").animate({opacity:0},300,"easeOutSine");
 
 		imgAlt = $(this).find("img").attr("alt");
 		imgLen = imgAlt.length;
@@ -223,6 +232,17 @@ $(function(){
 		$("<img src='./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg' alt="+imgAlt+">").appendTo(".modal_close");
 		$(".modal_close>img").animate({opacity:1},600);
 		if($(".modal_close>img").length > 2) $(".modal_close>img:first-child").remove();
+
+		$(".logo>a:nth-of-type(1)").animate({opacity:0},400,function(){
+			$(".logo>a:nth-of-type(1)").css("display","none")
+		})
+		$(".logo>a:nth-of-type(2)").css("display","block");
+		$(".logo>a:nth-of-type(2)").delay(400).animate({opacity:1},600);
+
+		$(".sub_title>ul").animate({opacity:0},300,function(){
+			$(".sub_title>ul>li").css("color","#fff")}
+		);
+		$(".sub_title>ul").delay(100).animate({opacity:1},300);
 	});
 
 	$(".modal_nav>ul>li").click(function(){
@@ -238,14 +258,12 @@ $(function(){
 		$(".modal_nav>ul>li").removeClass();
 		modalNavImg.addClass("on");
 
-		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)});
+		$(".modal_nav>ul").stop().animate({left: 720+ (imgNum * 240 * -1)},500,"easeOutSine");
 
 		$("<img src='./images/gallery/gallery_bg"+imgAlt.substr(imgLen-2,2)+".jpg' alt="+imgAlt+">").appendTo(".modal_close");
 		$(".modal_close>img").animate({opacity:1},600);
 		$(".modal_close>img:first-child").remove();
 	})
-
-
 
 	$(".modal_close").click(function(){
 		$("#modal").animate({opacity:0},300,function(){
@@ -253,6 +271,15 @@ $(function(){
 		})		
 		$(".thumb_left_btn").animate({opacity:1},300);
 		$(".thumb_right_btn").animate({opacity:1},300);
+		
+		$(".logo>a:nth-of-type(2)").css({display:"none",opacity:0})
+		$(".logo>a:nth-of-type(1)").css("display","block");
+		$(".logo>a:nth-of-type(1)").delay(400).animate({opacity:1},600);
+		
+		$(".sub_title>ul").animate({opacity:0},300,function(){
+			$(".sub_title>ul>li").css("color","#333")}
+		);
+		$(".sub_title>ul").delay(100).animate({opacity:1},300);
 	})
  
 	// 
