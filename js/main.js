@@ -113,8 +113,8 @@ $(function(){
 
 		console.log(scrollL);
 
-		$("#model_wrap").stop().animate({left:-1*scrollL},500);
-		$("#history_wrap").stop().animate({left:-1*scrollL},500);
+		$("#model_wrap").stop().animate({left:-1*scrollL},300,"easeOutSine");
+		$("#history_wrap").stop().animate({left:-1*scrollL},300,"easeOutSine");
 
 	})
 	/*$(".contents_wrap").on("mousewheel DOMMouseScroll", function(e){
@@ -187,6 +187,22 @@ $(function(){
 			$(".car_color").eq(i).css("margin-left",-1*$(".car_color").eq(i).width() / 2);
 		}
 	}
+	//------------------------------------------------------------------
+	//-------------------- jeep history page jquery --------------------
+	//------------------------------------------------------------------
+	var exSwitch = true;
+	$(".ex_01_switch").click(function(){
+		if(exSwitch){
+			$(".ex_01>div:nth-of-type(2)").css("background-image","url(./images/models/wrangler/exterior/exterior02_on.jpg");
+			$(".ex_01_switch>div").addClass("on");			
+			exSwitch = false;
+		}else{
+			$(".ex_01>div:nth-of-type(2)").css("background-image","url(./images/models/wrangler/exterior/exterior02.jpg");
+			$(".ex_01_switch>div").removeClass();
+			exSwitch = true;
+		}
+	})
+
 	//------------------------------------------------------------------
 	//-------------------- jeep gallery page jquery --------------------
 	//------------------------------------------------------------------
