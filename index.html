@@ -3,14 +3,85 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
-	<title>jeep_web</title>
+	<title>jeep_main</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<script src="../../js/jquery-3.3.1.min.js"></script>
+	<script src="../../js/jquery.easing.min.js"></script>
+	<script src="./js/main.js"></script>
+</head>
 </head>
 <body>
-	<ol>
-		<li><h3><a href="./gallery.html">jeep_gallery_page(사이즈 수정필요)</a></h3></li>
-		<li><h3><a href="./main.html">jeep_main_page(저용량_test)</a></h3></li>
-		<li><h3><a href="./history.html">jeep_history_page(10%)</a></h3></li>
-		<li><h3><a href="./models.html">jeep_models_page(10%)</a></h3></li>
-	</ol>	
+	<!-- <i class="fas fa-exclamation-triangle"></i> -->
+	<div id="error_modal">
+		<div>
+			<h2><i class="fas fa-unlink"></i> 준비중입니다</h2>
+			<p>한단계 업그레이드된 강력한 <br>오프로드 성능의 WRANGLER 구경하세요</p>
+			<div>
+				<a href="./sub/models.html">yes</a>
+				<a href="javascript:void(0)">no</a>
+			</div>
+		</div>
+	</div>
+	<h1 class="logo"><a href="./index.html"><img src="./images/logo_wh.png" alt="logo"></a></h1>
+	<nav id="gnb">
+		<div id="toggle_btn">
+			<div class="toggle"></div>
+		</div>
+		<ul>
+			<li><a href="./sub/brand.html">brand</a></li>
+			<li><a href="javascript:void(0)">models</a></li>
+			<div id="subMenu">
+				<div><a href="./sub/models.html">wrangler</a></div>
+				<div><a href="#">cherokee</a></div>
+				<div><a href="#">compass</a></div>
+				<div><a href="#">renegade</a></div>
+			</div>
+			<li><a href="./sub/spec.html">spec</a></li>	
+			<li><a href="./sub/gallery.html">gallery</a></li>
+		</ul>
+		<div class="sns">
+			<div>
+				<a href="https://www.facebook.com/JeepKorea">
+					<img src="./images/facebook.png" alt="facebook">
+				</a>
+			</div>
+			<div>
+				<a href="https://www.instagram.com/jeepkorea/">
+					<img src="./images/youtube.png" alt="youtube">
+				</a>
+			</div>
+			<div>
+				<a href="https://www.youtube.com/JeepKorea">
+					<img src="./images/instar.png" alt="instar"></a>
+			</div>
+		</div>
+		<div class="copyright">
+			<img src="./images/logo_fca.png" alt="fca_logo">
+			<p>ⓒ 2017 Fiat Chrysler Automobiles.All Rights Reserved.</p>
+			<!-- <p>Chrysler, Jeep 및 FIAT 로고는 Flat Chrysler Automobiles (FCA)의 등록 상표입니다. </p> -->
+		</div>
+	</nav>
+	<div id="main_container">
+		<div id="controls">
+			<div class="prev_btn"><a href="javascript:void(0)"><i class="fas fa-backward"></i></a></div>
+			<div class="stop_btn"><a href="javascript:void(0)"><i class="fas fa-stop"></i></a></div>
+			<div class="next_btn"><a href="javascript:void(0)"><i class="fas fa-forward"></i></a></div>
+		</div>
+		<section class="rolling_bg">
+			<ul>
+				<li style="z-index:1">rolling01</li>
+				<li>rolling02</li>
+				<li>rolling03</li>
+				<li>rolling04</li>
+				<li>rolling05</li>
+				<li>rolling06</li>
+				<li>rolling07</li>
+				<li>rolling08</li>
+				<li>rolling09</li>
+			</ul>
+		</section>
+	</div>
 </body>
 </html>
